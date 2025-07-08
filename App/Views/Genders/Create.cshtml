@@ -1,0 +1,43 @@
+﻿@model App.Models.Gender
+
+@{
+    ViewData["Title"] = "Create Gender";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Create Gender</h2>
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="GenderId" class="form-label"></label>
+                    <input asp-for="GenderId" class="form-control" />
+                    <span asp-validation-for="GenderId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="GenderName" class="form-label"></label>
+                    <input asp-for="GenderName" class="form-control" />
+                    <span asp-validation-for="GenderName" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

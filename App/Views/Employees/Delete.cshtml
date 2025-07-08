@@ -1,0 +1,12 @@
+﻿@model App.Models.Employee
+
+<h2>Delete Confirmation</h2>
+
+<div>
+    <p>Are you sure you want to delete employee <strong>@Model.Name</strong>?</p>
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="SesaId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
